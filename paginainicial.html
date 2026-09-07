@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilopaginicial.css">
+    <title>IFMA Saudável - Início</title>
+</head>
+<body>
+
+    <header>
+        <button class="menu-toggle" id="mobile-menu" aria-label="Abrir Menu">☰</button>
+        <h1>IFMA Saudável</h1>
+
+        <nav id="nav-menu">
+            <ul> 
+                <li><a href="paginainicial.html" class="active">Início</a></li>
+                <li><a href="pagcardapio.html">Cardápio</a></li>
+                <li><a href="pagnoticias.html">Notícias</a></li>
+                <li><a href="paginapodcast.html">Podcasts</a></li>
+                <li><a href="paginfomacoes.html">Informações</a></li>
+            </ul>
+        </nav>
+
+        <form class="pesquisa">
+            <input type="text" placeholder="Pesquisar...">
+            <button type="submit">🔍</button>
+        </form>
+    </header>
+
+    <div class="layout-container">
+        <main class="conteudo-principal">
+            <section class="informacoes">
+                <h2>Bem-vindo ao IFMA Saudável</h2>
+                <p>Sua plataforma oficial para acompanhar o cardápio escolar, notícias sobre saúde, nutrição e episódios do nosso podcast.</p>
+            </section>
+        </main>
+
+        <aside class="barra-lateral">
+            <div class="card-aside">
+                <h3>Dica do Nutricionista</h3>
+                <p>Mantenha-se hidratado! Beber água regularmente durante o dia ajuda na digestão e melhora a concentração nos estudos.</p>
+            </div>
+
+            <div class="card-aside">
+                <h3>Avisos Importantes</h3>
+                <p>Acompanhe semanalmente as atualizações do nosso cardápio e podcast oficial.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div>
+            <h4>Sobre o IFMA Saudável</h4>
+            <p>Plataforma voltada para a difusão de conhecimento sobre saúde e nutrição.</p>
+        </div>
+        <div>
+            <h4>Navegação Rápida</h4>
+            <a href="#">Política de Privacidade</a>
+        </div>
+        <div>
+            <h4>Contato & Redes</h4>
+            <p>Email: contato@ifmasaudavel.com</p>
+            <p>Telefone: (11) 99999-8888</p>
+        </div>
+    </footer>
+
+    <script>
+     document.addEventListener('DOMContentLoaded', () => {
+    // Captura o botão hambúrguer
+    const menuToggle = document.getElementById('mobile-menu') || document.getElementById('menu-toggle');
+    // Captura o elemento nav principal
+    const navMenu = document.getElementById('nav-menu') || document.querySelector('header nav');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            // Alterna a classe 'active' para exibir ou ocultar o menu de acordo com o CSS
+            navMenu.classList.toggle('active');
+        });
+    }
+});
+    </script>
+
+</body>
+</html>

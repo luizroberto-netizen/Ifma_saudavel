@@ -1,0 +1,257 @@
+:root {
+    --verde-principal: #2e7d32;
+    --verde-escuro: #1b5e20;
+    --laranja-principal: #f57c00;
+    --laranja-hover: #e65100;
+    --fundo: #f4f6f8;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --sombra: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--verde-principal);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+#nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+#nav-menu a:hover {
+    background-color: var(--laranja-principal);
+}
+
+.pesquisa {
+    display: flex;
+}
+
+.pesquisa input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.pesquisa button {
+    background-color: var(--laranja-principal);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.layout-container {
+    display: flex;
+    max-width: 1100px;
+    width: 90%;
+    margin: 30px auto;
+    gap: 20px;
+    flex: 1;
+}
+
+.conteudo-principal {
+    flex: 3;
+}
+
+.informacoes {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-left: 5px solid var(--verde-principal);
+}
+
+.informacoes h2 {
+    color: var(--verde-escuro);
+    margin-bottom: 10px;
+}
+
+/* Customização do Player de Áudio */
+audio {
+    margin-top: 15px;
+    border-radius: 30px;
+    outline: none;
+}
+
+.barra-lateral {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-aside {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-left: 5px solid var(--laranja-principal);
+}
+
+.card-aside h3 {
+    color: var(--laranja-hover);
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: var(--verde-escuro);
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: auto;
+}
+
+footer h4 {
+    color: var(--laranja-principal);
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+/* ==========================================
+   MENU DESKTOP (Padrão para telas grandes)
+   ========================================== */
+/* Esconde o botão hambúrguer no Desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Exibe os links lado a lado no Desktop */
+#nav-menu ul {
+    display: flex !important;
+    flex-direction: row;
+    list-style: none;
+    gap: 15px;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+#nav-menu a:hover {
+    background-color: #f57c00; /* Laranja */
+}
+
+/* Overlay para o Mobile */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 140;
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* ==========================================
+   MENU MOBILE (Telas até 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Exibe o botão hambúrguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Transforma a barra em gaveta lateral da esquerda para a direita */
+    #nav-menu {
+        position: fixed;
+        top: 0;
+        left: -260px; /* Escondido à esquerda */
+        width: 250px;
+        height: 100vh;
+        background-color: #1b5e20; /* Verde escuro */
+        z-index: 150;
+        transition: left 0.3s ease-in-out;
+        padding-top: 60px;
+    }
+
+    /* Classe ativada pelo JavaScript ao clicar no botão */
+    #nav-menu.active {
+        left: 0 !important; /* Desliza para a tela */
+    }
+
+    /* Muda a lista de links para vertical */
+    #nav-menu ul {
+        flex-direction: column !important;
+        gap: 0;
+    }
+
+    #nav-menu li {
+        width: 100%;
+    }
+
+    #nav-menu a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
