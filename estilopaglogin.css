@@ -44,7 +44,6 @@ main {
     padding: 20px;
 }
 
-/* Container do Login */
 .login-container {
     background: var(--card);
     padding: 30px;
