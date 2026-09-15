@@ -109,7 +109,6 @@ h2,
     margin-bottom: 10px;
 }
 
-/* Containers de Conteúdo Principal */
 .informacoes {
     background: var(--card);
     padding: 25px;
@@ -119,14 +118,13 @@ h2,
     margin-bottom: 20px;
 }
 
-/* Cards de Notícias */
 .informacoes .card-aside {
     background: var(--card);
     border-left: 5px solid var(--verde-principal);
-    margin-bottom: 20px; /* Aumenta o espaçamento entre as notícias */
-    padding: 15px 20px; /* Adiciona espaço interno para afastar o texto da barra verde */
-    border-radius: 8px; /* Arredonda os cantos */
-    box-shadow: var(--sombra); /* Adiciona o sombreamento */
+    margin-bottom: 20px;
+    padding: 15px 20px; 
+    border-radius: 8px; 
+    box-shadow: var(--sombra); 
 }
 
 .informacoes .card-aside h3 {
@@ -175,10 +173,6 @@ footer a {
     text-decoration: none;
 }
 
-/* ==========================================
-   MENU DESKTOP (Padrão para telas grandes)
-   ========================================== */
-/* Esconde o botão hambúrguer no Desktop */
 .menu-toggle {
     display: none;
     background: none;
@@ -188,7 +182,6 @@ footer a {
     cursor: pointer;
 }
 
-/* Exibe os links lado a lado no Desktop */
 #nav-menu ul {
     display: flex !important;
     flex-direction: row;
@@ -205,10 +198,9 @@ footer a {
 }
 
 #nav-menu a:hover {
-    background-color: #f57c00; /* Laranja */
+    background-color: #f57c00; 
 }
 
-/* Overlay para o Mobile */
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -224,34 +216,28 @@ footer a {
     display: block;
 }
 
-/* ==========================================
-   MENU MOBILE (Telas até 768px)
-   ========================================== */
 @media (max-width: 768px) {
-    /* Exibe o botão hambúrguer */
     .menu-toggle {
         display: block;
     }
 
-    /* Transforma a barra em gaveta lateral da esquerda para a direita */
+   
     #nav-menu {
         position: fixed;
         top: 0;
-        left: -260px; /* Escondido à esquerda */
+        left: -260px; 
         width: 250px;
         height: 100vh;
-        background-color: #1b5e20; /* Verde escuro */
+        background-color: #1b5e20; 
         z-index: 150;
         transition: left 0.3s ease-in-out;
         padding-top: 60px;
     }
 
-    /* Classe ativada pelo JavaScript ao clicar no botão */
     #nav-menu.active {
-        left: 0 !important; /* Desliza para a tela */
+        left: 0 !important; 
     }
 
-    /* Muda a lista de links para vertical */
     #nav-menu ul {
         flex-direction: column !important;
         gap: 0;
