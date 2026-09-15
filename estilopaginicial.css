@@ -1,6 +1,4 @@
-/* ==========================================
-   PALETA E RESETS (Início)
-   ========================================== */
+
 :root {
     --verde-principal: #2e7d32;
     --verde-escuro: #1b5e20;
@@ -27,9 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/* ==========================================
-   HEADER E NAVEGAÇÃO
-   ========================================== */
+
 header {
     background-color: var(--verde-principal);
     color: white;
@@ -102,9 +98,7 @@ header h1 {
     background-color: var(--laranja-hover);
 }
 
-/* ==========================================
-   LAYOUT PRINCIPAL (MAIN & ASIDE)
-   ========================================== */
+
 .layout-container {
     display: flex;
     max-width: 1100px;
@@ -151,9 +145,7 @@ header h1 {
     margin-bottom: 10px;
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
+
 footer {
     background-color: var(--verde-escuro);
     color: white;
@@ -179,13 +171,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* ==========================================
-   RESPONSIVIDADE E MENU ESQUERDA -> DIREITA
-   ========================================== */
-/* ==========================================
-   MENU DESKTOP (Padrão para telas grandes)
-   ========================================== */
-/* Esconde o botão hambúrguer no Desktop */
+
 .menu-toggle {
     display: none;
     background: none;
@@ -195,7 +181,7 @@ footer a:hover {
     cursor: pointer;
 }
 
-/* Exibe os links lado a lado no Desktop */
+
 #nav-menu ul {
     display: flex !important;
     flex-direction: row;
@@ -231,16 +217,13 @@ footer a:hover {
     display: block;
 }
 
-/* ==========================================
-   MENU MOBILE (Telas até 768px)
-   ========================================== */
 @media (max-width: 768px) {
     /* Exibe o botão hambúrguer */
     .menu-toggle {
         display: block;
     }
 
-    /* Transforma a barra em gaveta lateral da esquerda para a direita */
+   
     #nav-menu {
         position: fixed;
         top: 0;
@@ -255,12 +238,12 @@ footer a:hover {
         padding-top: 60px;
     }
 
-    /* Classe ativada pelo JavaScript ao clicar no botão */
+  
     #nav-menu.active {
         left: 0 !important; /* Desliza para a tela */
     }
 
-    /* Muda a lista de links para vertical */
+ 
     #nav-menu ul {
         flex-direction: column !important;
         gap: 0;
