@@ -113,14 +113,14 @@ header h1 {
     margin-bottom: 25px;
 }
 
-/* Estilo unificado para todos os títulos h2 do site */
+
 h2 {
     color: var(--verde-escuro);
     margin-bottom: 15px;
     font-size: 1.5rem;
 }
 
-/* Se precisar de uma borda inferior estilizada (opcional) */
+
 .informacoes h2, 
 .cardapio-semanal h2 {
     border-bottom: 2px solid var(--verde-claro);
@@ -130,7 +130,7 @@ h2 {
   
 
 
-/* Tabela Expandida de Nutrientes */
+
 .dia-card {
     background: var(--card);
     border-radius: 8px;
@@ -231,10 +231,6 @@ footer a {
     text-decoration: none;
 }
 
-/* ==========================================
-   MENU DESKTOP (Padrão para telas grandes)
-   ========================================== */
-/* Esconde o botão hambúrguer no Desktop */
 .menu-toggle {
     display: none;
     background: none;
@@ -244,7 +240,7 @@ footer a {
     cursor: pointer;
 }
 
-/* Exibe os links lado a lado no Desktop */
+
 #nav-menu ul {
     display: flex !important;
     flex-direction: row;
@@ -280,16 +276,14 @@ footer a {
     display: block;
 }
 
-/* ==========================================
-   MENU MOBILE (Telas até 768px)
-   ========================================== */
+
 @media (max-width: 768px) {
     /* Exibe o botão hambúrguer */
     .menu-toggle {
         display: block;
     }
 
-    /* Transforma a barra em gaveta lateral da esquerda para a direita */
+   
     #nav-menu {
         position: fixed;
         top: 0;
@@ -302,12 +296,12 @@ footer a {
         padding-top: 60px;
     }
 
-    /* Classe ativada pelo JavaScript ao clicar no botão */
+    
     #nav-menu.active {
         left: 0 !important; /* Desliza para a tela */
     }
 
-    /* Muda a lista de links para vertical */
+   
     #nav-menu ul {
         flex-direction: column !important;
         gap: 0;
