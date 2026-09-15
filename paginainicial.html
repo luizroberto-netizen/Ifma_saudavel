@@ -67,14 +67,14 @@
 
     <script>
      document.addEventListener('DOMContentLoaded', () => {
-    // Captura o botão hambúrguer
+    
     const menuToggle = document.getElementById('mobile-menu') || document.getElementById('menu-toggle');
-    // Captura o elemento nav principal
+    
     const navMenu = document.getElementById('nav-menu') || document.querySelector('header nav');
 
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
-            // Alterna a classe 'active' para exibir ou ocultar o menu de acordo com o CSS
+           
             navMenu.classList.toggle('active');
         });
     }
