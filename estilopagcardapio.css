@@ -214,10 +214,6 @@ footer a {
     text-decoration: none;
 }
 
-/* ==========================================
-   MENU DESKTOP (Padrão para telas grandes)
-   ========================================== */
-/* Esconde o botão hambúrguer no Desktop */
 .menu-toggle {
     display: none;
     background: none;
@@ -247,7 +243,7 @@ footer a {
     background-color: #f57c00; /* Laranja */
 }
 
-/* Overlay para o Mobile */
+
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -263,16 +259,14 @@ footer a {
     display: block;
 }
 
-/* ==========================================
-   MENU MOBILE (Telas até 768px)
-   ========================================== */
+
 @media (max-width: 768px) {
     /* Exibe o botão hambúrguer */
     .menu-toggle {
         display: block;
     }
 
-    /* Transforma a barra em gaveta lateral da esquerda para a direita */
+   
     #nav-menu {
         position: fixed;
         top: 0;
@@ -285,12 +279,12 @@ footer a {
         padding-top: 60px;
     }
 
-    /* Classe ativada pelo JavaScript ao clicar no botão */
+  
     #nav-menu.active {
         left: 0 !important; /* Desliza para a tela */
     }
 
-    /* Muda a lista de links para vertical */
+
     #nav-menu ul {
         flex-direction: column !important;
         gap: 0;
