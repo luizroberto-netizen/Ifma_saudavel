@@ -223,7 +223,6 @@ footer a {
     cursor: pointer;
 }
 
-/* Exibe os links lado a lado no Desktop */
 #nav-menu ul {
     display: flex !important;
     flex-direction: row;
@@ -240,7 +239,7 @@ footer a {
 }
 
 #nav-menu a:hover {
-    background-color: #f57c00; /* Laranja */
+    background-color: #f57c00; 
 }
 
 
@@ -261,19 +260,18 @@ footer a {
 
 
 @media (max-width: 768px) {
-    /* Exibe o botão hambúrguer */
+
     .menu-toggle {
         display: block;
     }
 
-   
     #nav-menu {
         position: fixed;
         top: 0;
-        left: -260px; /* Escondido à esquerda */
+        left: -260px; 
         width: 250px;
         height: 100vh;
-        background-color: #1b5e20; /* Verde escuro */
+        background-color: #1b5e20; 
         z-index: 150;
         transition: left 0.3s ease-in-out;
         padding-top: 60px;
@@ -281,7 +279,7 @@ footer a {
 
   
     #nav-menu.active {
-        left: 0 !important; /* Desliza para a tela */
+        left: 0 !important; /
     }
 
 
