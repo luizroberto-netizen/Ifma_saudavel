@@ -17,7 +17,7 @@
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: var(--fundo);
+    background-color:#F4D4B5;
     color: var(--texto);
     display: flex;
     flex-direction: column;
