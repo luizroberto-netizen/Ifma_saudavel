@@ -3,52 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFMA Saudável</title>
+   
     <link rel="stylesheet" href="estilopaginapodcast.css">
-    <title>IFMA Saudável - Podcasts</title>
 </head>
 <body>
 
+   
     <header>
-        <button class="menu-toggle" id="mobile-menu" aria-label="Abrir Menu">☰</button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu de Navegação">
+            &#9776;
+        </button>
 
         <h1>IFMA Saudável</h1>
 
-        <nav id="nav-menu">
-            <ul> 
-                <li><a href="paginainicial.html">Início</a></li>
-                <li><a href="pagcardapio.html">Cardápio</a></li>
-                <li><a href="pagnoticias.html">Notícias</a></li>
-                <li><a href="paginapodcast.html">Podcasts</a></li>
-                <li><a href="paginfomacoes.html">Informações</a></li>
-            </ul>
-        </nav>
-
-        <form class="pesquisa">
-            <input type="text" placeholder="Pesquisar...">
-            <button type="submit">🔍</button>
+        
+        <form class="pesquisa" action="#" method="get">
+            <input type="text" placeholder="Buscar no site..." aria-label="Pesquisar conteúdo">
+            <button type="submit">Buscar</button>
         </form>
+
+        
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="paginainicial.html">Início</a></li>
+                <li><a href="paginapodcast.html">Podcasts</a></li>
+                <li><a href="pagnoticias.html">Notícias</a></li>
+                <li><a href="paginainformacoes.html">Informações</a></li>
+                <li><a href="pagcardapio.html">Cardápio</a></li>
+            </ul>
+
+        </nav>
     </header>
 
-    <div class="layout-container">
-        <main class="conteudo-principal">
-            <section class="informacoes">
-               
-                 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/5AZq9IC6LrLGV8851RwM5u?utm_source=generator&si=7dd710ca10a242de" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    
+    <main>
+      
+        <section class="banner-podcast" id="podcasts">
+              <h2>🎙️ Podcast Disponivel: Fome de Quê?</h2>
+                <p>Ouça nossos episódios para melhorar sua alimentação e saúde no dia a dia.</p>
+                <div id="view-list">
+      <div class="header">
+        <img class="cover" src="https://i.scdn.co/image/ab6765630000ba8a5e75addb1a469e1ead906520" alt="Capa do podcast Fome de quê?">
+        <div class="meta">
+          <h1>Fome de quê?</h1>
+          <p class="desc">Projeto de educação alimentar e nutricional por Thays Nascimento, do IFMA — assuntos sobre alimentação, o comer e a comensalidade.</p>
+        </div>
+      </div>
+
+            <!-- ===== Lista de episódios ===== -->
+            <div id="podcast-list">
+                <div class="ep-list" id="ep-list"></div>
+            </div>
+
+            <!-- ===== Detalhe do episódio ===== -->
+            <div id="podcast-detail">
+                <button class="back-link" onclick="showList()">&larr; Voltar para todos os episódios</button>
+
+                <div class="player-card">
+                    <iframe id="d-iframe" src="" height="232" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+
+                <div class="ep-description">
+                    <h3 id="d-title"></h3>
+                    <p class="ep-sub" id="d-sub"></p>
+                    <p id="d-desc"></p>
+                </div>
+            </div>
+
             </section>
-        </main>
 
-        <aside class="barra-lateral">
-            <div class="card-aside">
-                <h3>Dica do Nutricionista</h3>
-                <p>Mantenha-se hidratado! Beber água regularmente durante o dia ajuda na digestão e melhora a concentração nos estudos.</p>
-            </div>
+      
+       
+        <section class="grid-home" id="artigos">
+            
+            
+            <article class="card">
+                <h3>Cardapio </h3>
+                <p>Cardapio disponibilizado pelo restaurante escolar.</p>
+                <a href="#" class="btn-card">Ler Artigo</a>
+            </article>
 
-            <div class="card-aside">
-                <h3>Avisos Importantes</h3>
-                <p>Novos episódios lançados quinzenalmente. Mande suas dúvidas sobre nutrição para o nosso e-mail!</p>
-            </div>
-        </aside>
-    </div>
+        
+
+        </section>
+    </main>
 
     <footer>
         <div>
@@ -69,19 +109,75 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-  
-    const menuToggle = document.getElementById('mobile-menu') || document.getElementById('menu-toggle');
-    
-    const navMenu = document.getElementById('nav-menu') || document.querySelector('header nav');
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            
-            navMenu.classList.toggle('active');
+        // ---------- Menu mobile ----------
+        document.getElementById("menu-toggle").addEventListener("click", () => {
+            document.getElementById("nav-menu").classList.toggle("active");
         });
-    }
-});
+
+        // ---------- Dados dos episódios ----------
+        // Para adicionar um novo episódio, copie um objeto do array abaixo e preencha os dados.
+        const episodes = [
+            {
+                id: "1VVyylmjyE3naESeOiV0aP",
+                title: "#1. Desperdício de alimentos",
+                date: "22 de dezembro de 2023",
+                duration: "12 min",
+                cover: "https://i.scdn.co/image/ab6765630000ba8a071daae0f6386ee7781e59e2",
+                description: "Olá! Sejam bem vindos e bem vindas a esse primeiro episódio do Fome de quê?, um projeto de divulgação de educação alimentar e nutricional desenvolvido pela nutricionista escolar Thays Nascimento, que atua no campus Pinheiro do Instituto Federal de Educação, Ciência e Tecnologia do Maranhão. Hoje o assunto é desperdício de alimentos. Vamos lá?"
+            },
+            {
+                id: "7p0qj1EfOGaWwRoahs65yV",
+                title: "#2. Transtornos alimentares",
+                date: "29 de dezembro de 2023",
+                duration: "11 min",
+                cover: "https://i.scdn.co/image/ab6765630000ba8a5e75addb1a469e1ead906520",
+                description: "Hoje vamos falar um pouquinho sobre o que são transtornos alimentares e como você pode identificar os sinais e ajudar alguém que esteja precisando de ajuda para buscar tratamento especializado. Nesse episódio foram utilizadas consultas feitas ao site da Associação Brasileira de Transtornos Alimentares, a ASTRAL."
+            },
+            {
+                id: "3CH1yy81GmL3bVRGzuUTlw",
+                title: "#3. Entendendo o grau de processamento dos alimentos",
+                date: "5 de janeiro de 2024",
+                duration: "17 min",
+                cover: "https://i.scdn.co/image/ab6765630000ba8a5e75addb1a469e1ead906520",
+                description: "Olááááá! Nesse episódio vamos falar um pouco sobre a classificação dos alimentos a partir do entendimento do grau de processamento conforme descrito no Guia Alimentar para a População Brasileira."
+            }
+            // { id: "...", title: "...", date: "...", duration: "...", cover: "...", description: "..." },
+        ];
+
+        const listEl = document.getElementById("ep-list");
+
+        episodes.forEach((ep, i) => {
+            const row = document.createElement("div");
+            row.className = "ep-row";
+            row.onclick = () => showDetail(i);
+            row.innerHTML = `
+                <img class="thumb" src="${ep.cover}" alt="">
+                <div class="info">
+                    <div class="title">${ep.title}</div>
+                    <div class="sub">${ep.date}</div>
+                </div>
+                <div class="duration">${ep.duration}</div>
+            `;
+            listEl.appendChild(row);
+        });
+
+        function showDetail(i) {
+            const ep = episodes[i];
+            document.getElementById("d-title").textContent = ep.title;
+            document.getElementById("d-sub").textContent = `${ep.date} · ${ep.duration}`;
+            document.getElementById("d-iframe").src = `https://open.spotify.com/embed/episode/${ep.id}?utm_source=generator`;
+            document.getElementById("d-desc").textContent = ep.description;
+
+            document.getElementById("podcast-list").style.display = "none";
+            document.getElementById("podcast-detail").style.display = "block";
+        }
+
+        function showList() {
+            document.getElementById("d-iframe").src = ""; // para o áudio ao voltar
+            document.getElementById("podcast-detail").style.display = "none";
+            document.getElementById("podcast-list").style.display = "block";
+        }
     </script>
+
 </body>
 </html>
