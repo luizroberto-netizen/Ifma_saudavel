@@ -43,6 +43,10 @@ header h1 {
     font-size: 1.5rem;
 }
 
+h2{
+    text-align: center;
+}
+
 .menu-toggle {
     background: none;
     border: none;
@@ -105,18 +109,30 @@ header h1 {
 }
 
 /* Estilização do Cardápio */
+.cardapio-semanal {
+    display: grid;
+    /* Cria colunas automáticas de tamanho igual (no mínimo 280px por card) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Espaçamento entre os cards */
+    align-items: stretch; /* Garante que todos os cards na mesma linha tenham a mesma altura */
+    /* Faz com que o último card do cardápio ocupe todas as colunas da linha */
+}
+
 .cardapio-semanal h2 {
     color: var(--verde-escuro);
     margin-bottom: 20px;
+    grid-column: 1 / -1; /* Ocupa todas as colunas disponíveis */
 }
 
 .dia-card {
     background: var(--card);
     border-radius: 8px;
     box-shadow: var(--sombra);
-    margin-bottom: 20px;
+    margin-bottom: 0; /* Removido margin-bottom antigo pois o gap do grid cuida do espaçamento */
     overflow: hidden;
     border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
 }
 
 .dia-header {
@@ -129,6 +145,10 @@ header h1 {
 
 .dia-body {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .pratos-lista {
@@ -158,7 +178,7 @@ header h1 {
 .tabela-calorias {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: auto;
 }
 
 .tabela-calorias th {
