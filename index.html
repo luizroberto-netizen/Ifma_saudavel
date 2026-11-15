@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFMA Saudavel - Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="marca">
+            <span class="marca-icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 4C10 4 4 9 4 16c0 1.5.3 2.8.8 4C6 14 10 11 15 9c-3 2.5-5.5 5.5-6.7 10.2.9.5 1.9.8 3 .8C18 20 20 12 20 4z"/></svg>
+            </span>
+            <div>
+                <h1>IFMA Saudavel</h1>
+                <p>Campus São José de Ribamar</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-container">
+
+            <!-- Coluna da esquerda: desenho do campus -->
+            <section class="login-illustration">
+                <div class="arco">
+                    <img src="Entrada do Campus São José de Ribamar 3.png" alt="Desenho da entrada do Campus São José de Ribamar">
+                </div>
+                <div class="illustration-caption">
+                    <h2>Bem-vindo ao IFMA Saudável</h2>
+                    <p>Informação sobre saúde e alimentação para quem estuda no campus.</p>
+                </div>
+            </section>
+
+            <!-- Coluna da direita: formulário -->
+            <section class="login-form-side">
+                <h2>Login </h2>
+                <p class="subtitulo">Use a matrícula e a senha da sua conta.</p>
+
+                <form id="loginForm" action="/api/login" method="post">
+                    <div class="field-group">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula" autocomplete="username" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="senha">Senha</label>
+                        <div class="campo-senha">
+                            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+                            <button type="button" id="alternarSenha" class="botao-mostrar" aria-label="Mostrar senha" aria-pressed="false">Mostrar</button>
+                        </div>
+                    </div>
+
+                    <p id="mensagem" class="mensagem" role="alert" aria-live="polite"></p>
+
+                    <button type="submit" class="botao-entrar">Entrar</button>
+                </form>
+</a></p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <h4>Sobre o IFMA Saudável</h4>
+            <p>Plataforma voltada para a difusão de conhecimento sobre saúde e nutrição.</p>
+        </div>
+        <div>
+            <h4>Navegação rápida</h4>
+            <a href="#">Política de privacidade</a>
+        </div>
+        <div>
+            <h4>Contato</h4>
+            <p>Email: contato@ifmasaudavel.com</p>
+            <p>Telefone: (11) 99999-8888</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

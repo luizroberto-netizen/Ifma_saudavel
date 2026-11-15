@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap');
+
+/* Paleta da página: verde, laranja e fundo pêssego */
+:root {
+    --verde-principal: #2e7d32;
+    --verde-escuro: #1b5e20;
+    --laranja-principal: #f57c00;
+    --laranja-hover: #e65100;
+    --laranja-claro: #ffa24d;       /* só para títulos sobre o verde escuro */
+    --fundo: #f5d5b6;               /* pêssego da página */
+    --fundo-claro: #fff6ec;         /* pêssego bem suave, usado no painel do desenho */
+    --card: #ffffff;
+    --texto: #26332b;
+    --texto-suave: #5f6b64;
+    --borda: #e0cfbd;
+    --sombra: 0 22px 44px -18px rgba(27, 94, 32, 0.35);
+
+    --fonte-titulo: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+    --fonte-texto: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-texto);
+    background-color: var(--fundo);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* ---------- Cabeçalho ---------- */
+header {
+    background-color: var(--verde-principal);
+    color: white;
+    padding: 18px 24px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(27, 94, 32, 0.25);
+}
+
+header h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* ---------- Área central ---------- */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 20px;
+    /* Luz suave no fundo pêssego, sem mudar a cor da página */
+    background:
+        radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.45) 0, transparent 38%),
+        radial-gradient(circle at 90% 85%, rgba(46, 125, 50, 0.12) 0, transparent 42%),
+        var(--fundo);
+}
+
+/* Cartão dividido em duas colunas */
+.login-container {
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: var(--sombra);
+    width: 100%;
+    max-width: 920px;
+    min-height: 480px;
+    display: flex;
+    overflow: hidden;
+    border-top: 6px solid var(--laranja-principal);
+}
+
+/* ---------- Coluna esquerda: desenho do campus ---------- */
+.login-illustration {
+    flex: 1.1;
+    background: linear-gradient(180deg, var(--fundo-claro) 0%, #fde6cc 100%);
+    border-right: 1px solid var(--borda);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-illustration img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain; /* mostra o desenho inteiro, sem cortes */
+    margin-bottom: 18px;
+
+    /* Mistura as bordas do desenho com o fundo do painel.
+       Para suavizar mais, aumente os 5%; para menos, diminua. */
+    -webkit-mask-image:
+        linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+        linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+        linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+    mask-composite: intersect;
+}
+
+.illustration-caption h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--verde-escuro);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.illustration-caption p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+/* ---------- Coluna direita: formulário ---------- */
+.login-form-side {
+    flex: 1;
+    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--card);
+}
+
+.login-form-side h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--verde-escuro);
+    margin-bottom: 26px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-form-side form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.field-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.login-form-side input {
+    padding: 13px 14px;
+    border: 1.5px solid var(--borda);
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.97rem;
+    color: var(--texto);
+    background-color: #fffdfb;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-form-side input::placeholder {
+    color: #8b958f;
+}
+
+.login-form-side input:hover {
+    border-color: #cbb7a1;
+}
+
+.login-form-side input:focus {
+    outline: none;
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.18);
+}
+
+.login-form-side button {
+    background-color: var(--laranja-principal);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    margin-top: 6px;
+}
+
+.login-form-side button:hover {
+    background-color: var(--laranja-hover);
+    box-shadow: 0 6px 14px rgba(245, 124, 0, 0.3);
+}
+
+.forgot-password {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.forgot-password a {
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Foco visível para quem navega pelo teclado */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--verde-escuro);
+    outline-offset: 2px;
+}
+
+/* ---------- Rodapé ---------- */
+footer {
+    background-color: var(--verde-escuro);
+    color: #e6f0e7;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px 40px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+footer > div {
+    max-width: 340px;
+}
+
+footer h4 {
+    font-family: var(--fonte-titulo);
+    color: var(--laranja-claro);
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Telas menores ---------- */
+@media (max-width: 800px) {
+    main {
+        padding: 28px 16px;
+    }
+
+    .login-container {
+        flex-direction: column;
+        max-width: 440px;
+        min-height: auto;
+    }
+
+    .login-illustration {
+        border-right: none;
+        border-bottom: 1px solid var(--borda);
+        padding: 26px 20px;
+    }
+
+    .login-illustration img {
+        max-width: 260px;
+    }
+
+    .login-form-side {
+        padding: 30px 24px 34px;
+    }
+
+    footer {
+        padding: 24px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
