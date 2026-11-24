@@ -19,13 +19,14 @@
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color:#F4D4B5;
+    background-color: #F4D4B5;
     color: var(--texto);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* ===== Cabeçalho ===== */
 header {
     background-color: var(--verde-principal);
     color: white;
@@ -43,21 +44,18 @@ header h1 {
     font-size: 1.5rem;
 }
 
-h2{
-    text-align: center;
-}
-
 .menu-toggle {
+    display: none;
     background: none;
     border: none;
     color: white;
     font-size: 1.8rem;
     cursor: pointer;
-    display: none;
 }
 
 #nav-menu ul {
     display: flex;
+    flex-direction: row;
     list-style: none;
     gap: 15px;
 }
@@ -71,12 +69,15 @@ h2{
     transition: background 0.3s;
 }
 
-#nav-menu a:hover {
+#nav-menu a:hover,
+#nav-menu a.active {
     background-color: var(--laranja-principal);
 }
 
+/* ===== Barra de pesquisa ===== */
 .pesquisa {
     display: flex;
+    align-items: center;
 }
 
 .pesquisa input {
@@ -93,8 +94,14 @@ h2{
     padding: 8px 12px;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
+.pesquisa button:hover {
+    background-color: var(--laranja-hover);
+}
+
+/* ===== Layout ===== */
 .layout-container {
     display: flex;
     max-width: 1100px;
@@ -106,93 +113,177 @@ h2{
 
 .conteudo-principal {
     flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
 }
 
-/* Estilização do Cardápio */
-.cardapio-semanal {
-    display: grid;
-    /* Cria colunas automáticas de tamanho igual (no mínimo 280px por card) */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; /* Espaçamento entre os cards */
-    align-items: stretch; /* Garante que todos os cards na mesma linha tenham a mesma altura */
-    /* Faz com que o último card do cardápio ocupe todas as colunas da linha */
-}
-
-.cardapio-semanal h2 {
-    color: var(--verde-escuro);
-    margin-bottom: 20px;
-    grid-column: 1 / -1; /* Ocupa todas as colunas disponíveis */
-}
-
-.dia-card {
+/* Card de introdução (igual ao da página inicial) */
+.informacoes {
     background: var(--card);
+    padding: 25px;
     border-radius: 8px;
     box-shadow: var(--sombra);
-    margin-bottom: 0; /* Removido margin-bottom antigo pois o gap do grid cuida do espaçamento */
-    overflow: hidden;
-    border: 1px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
+    border-left: 5px solid var(--verde-principal);
 }
 
-.dia-header {
-    background-color: var(--verde-principal);
-    color: white;
-    padding: 12px 20px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.dia-body {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-}
-
-.pratos-lista {
-    list-style: none;
+.informacoes h2 {
+    color: var(--verde-escuro);
     margin-bottom: 15px;
 }
 
-.pratos-lista li {
-    padding: 8px 0;
-    border-bottom: 1px dashed #e0e0e0;
+/* ===== Podcast ===== */
+.podcast-header {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-left: 5px solid var(--verde-principal);
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     align-items: center;
 }
 
-.tag-alergeno {
+.podcast-header .cover {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: var(--verde-claro);
+    flex-shrink: 0;
+}
+
+.podcast-header h3 {
+    color: var(--verde-escuro);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.podcast-header .desc {
+    line-height: 1.5;
+}
+
+.ep-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ep-row {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid var(--laranja-principal);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.ep-row:hover {
+    background: var(--laranja-claro);
+    transform: translateX(3px);
+}
+
+.ep-row .thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    object-fit: cover;
+    background-color: var(--verde-claro);
+    flex-shrink: 0;
+}
+
+.ep-row .info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ep-row .title {
+    font-weight: bold;
+    color: var(--verde-escuro);
+    margin-bottom: 4px;
+}
+
+.ep-row .sub {
+    font-size: 0.9rem;
+    color: #6b7c8c;
+}
+
+.ep-row .duration {
     background-color: var(--laranja-claro);
     color: var(--laranja-hover);
-    padding: 3px 8px;
+    border: 1px solid var(--laranja-principal);
+    padding: 3px 10px;
     border-radius: 12px;
     font-size: 0.8rem;
     font-weight: bold;
-    border: 1px solid var(--laranja-principal);
+    white-space: nowrap;
 }
 
-/* Tabela de Calorias */
-.tabela-calorias {
+/* Detalhe do episódio */
+#podcast-detail {
+    display: none;
+}
+
+.back-link {
+    background-color: var(--laranja-principal);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background 0.3s;
+}
+
+.back-link:hover {
+    background-color: var(--laranja-hover);
+}
+
+.player-card {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.player-card iframe {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: auto;
+    border: none;
+    border-radius: 12px;
 }
 
-.tabela-calorias th {
-    background-color: var(--verde-claro);
+.ep-description {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-left: 5px solid var(--verde-principal);
+    padding: 20px;
+}
+
+.ep-description h3 {
     color: var(--verde-escuro);
-    padding: 8px 12px;
-    text-align: left;
+    margin-bottom: 6px;
 }
 
-.tabela-calorias td {
-    padding: 8px 12px;
-    border-bottom: 1px solid #eee;
+.ep-description .ep-sub {
+    color: #6b7c8c;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
 }
 
+.ep-description p {
+    line-height: 1.6;
+}
+
+/* ===== Barra lateral ===== */
 .barra-lateral {
     flex: 1;
     display: flex;
@@ -213,6 +304,12 @@ h2{
     margin-bottom: 10px;
 }
 
+.card-aside a {
+    color: var(--verde-principal);
+    font-weight: 600;
+}
+
+/* ===== Rodapé ===== */
 footer {
     background-color: var(--verde-escuro);
     color: white;
@@ -234,35 +331,11 @@ footer a {
     text-decoration: none;
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    cursor: pointer;
+footer a:hover {
+    text-decoration: underline;
 }
 
-#nav-menu ul {
-    display: flex !important;
-    flex-direction: row;
-    list-style: none;
-    gap: 15px;
-}
-
-#nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 4px;
-}
-
-#nav-menu a:hover {
-    background-color: #f57c00; 
-}
-
-
+/* ===== Overlay mobile ===== */
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -278,9 +351,8 @@ footer a {
     display: block;
 }
 
-
+/* ===== Responsivo ===== */
 @media (max-width: 768px) {
-
     .menu-toggle {
         display: block;
     }
@@ -288,23 +360,22 @@ footer a {
     #nav-menu {
         position: fixed;
         top: 0;
-        left: -260px; 
+        left: -260px;
         width: 250px;
         height: 100vh;
-        background-color: #1b5e20; 
+        background-color: var(--verde-escuro);
+        box-shadow: 2px 0 5px rgba(0,0,0,0.3);
         z-index: 150;
         transition: left 0.3s ease-in-out;
         padding-top: 60px;
     }
 
-  
     #nav-menu.active {
-        left: 0 !important; /
+        left: 0;
     }
 
-
     #nav-menu ul {
-        flex-direction: column !important;
+        flex-direction: column;
         gap: 0;
     }
 
@@ -316,5 +387,15 @@ footer a {
         display: block;
         padding: 15px 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+    }
+
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .podcast-header {
+        flex-direction: column;
+        text-align: center;
     }
 }
